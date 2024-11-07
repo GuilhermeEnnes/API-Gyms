@@ -1,6 +1,6 @@
-import { Prisma, Gym } from '@prisma/client';
-import { prisma } from '@/lib/prisma';
-import { FindManyNearbyParams, GymsRepository } from '../gyms-repository';
+import { Prisma, Gym } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
+import { FindManyNearbyParams, GymsRepository } from "../gyms-repository";
 
 export class PrismaGymsRepository implements GymsRepository {
   async findById(id: string) {

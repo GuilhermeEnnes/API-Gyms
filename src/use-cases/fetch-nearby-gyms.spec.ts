@@ -1,26 +1,26 @@
-import { InMemoryGymsRepository } from '@/repositories/in-memory-repository/in-memory-gyms-repository';
-import { expect, describe, it, beforeEach } from 'vitest';
-import { FetchNearbyGymsUseCase } from './fetch-nearby-gyms';
+import { InMemoryGymsRepository } from "@/repositories/in-memory-repository/in-memory-gyms-repository";
+import { expect, describe, it, beforeEach } from "vitest";
+import { FetchNearbyGymsUseCase } from "./fetch-nearby-gyms";
 
 let gymsRepository: InMemoryGymsRepository;
 let sut: FetchNearbyGymsUseCase;
 
-describe('Fetch Nearby Gyms Use Case', () => {
+describe("Fetch Nearby Gyms Use Case", () => {
   beforeEach(async () => {
     gymsRepository = new InMemoryGymsRepository();
     sut = new FetchNearbyGymsUseCase(gymsRepository);
   });
 
-  it('should be able to fetch nearby gyms', async () => {
+  it("should be able to fetch nearby gyms", async () => {
     await gymsRepository.create({
-      title: 'Near Gym',
+      title: "Near Gym",
       description: null,
       phone: null,
       latitude: -22.9193457,
       longitude: -43.3915335,
     });
     await gymsRepository.create({
-      title: 'Far Gym',
+      title: "Far Gym",
       description: null,
       phone: null,
       latitude: -22.9116295,
@@ -33,6 +33,6 @@ describe('Fetch Nearby Gyms Use Case', () => {
     });
 
     expect(gyms).toHaveLength(1);
-    expect(gyms).toEqual([expect.objectContaining({ title: 'Near Gym' })]);
+    expect(gyms).toEqual([expect.objectContaining({ title: "Near Gym" })]);
   });
 });

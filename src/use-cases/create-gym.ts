@@ -1,5 +1,5 @@
-import { Gym } from '@prisma/client';
-import { GymsRepository } from '@/repositories/gyms-repository';
+import { Gym } from "@prisma/client";
+import { GymsRepository } from "@/repositories/gyms-repository";
 
 interface CreateGymUseCaseRequest {
   title: string;
@@ -13,7 +13,7 @@ interface CreateGymUseCaseReponse {
   gym: Gym;
 }
 export class CreateGymUseCase {
-  constructor(private gymsRepository: GymsRepository) {}
+  constructor(private gymsRepository: GymsRepository) { }
 
   async execute({
     title,
